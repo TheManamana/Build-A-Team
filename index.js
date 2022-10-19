@@ -7,6 +7,8 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
+const generateHtml = require('./src/generateHtml');
+
 const managerData = [];
 const engineerData = [];
 const internData = [];
@@ -171,6 +173,8 @@ async function addIntern() {
 
 }
 function finishBuilding() {
+
+    generateHtml(managerData, engineerData, internData);
     // fs.writeFile(`manager.txt`, JSON.stringify(managerData), (err) =>
     //     err ? console.error(err) : console.log('Success!')
     // );
