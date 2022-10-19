@@ -2,6 +2,11 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 
+const Employee = require('./lib/employee');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
+
 const managerData = [];
 const engineerData = [];
 const internData = [];
@@ -72,7 +77,7 @@ const questionsEngineer = [
     },
     {
         type: 'input',
-        name: 'engineerOffice',
+        name: 'engineerGithub',
         message: 'What is the engineers GitHub username?',
 
     },
@@ -120,7 +125,7 @@ function init() {
         .prompt(questionsManager)
         .then((data) => {
 
-            managerData.push(data);
+            managerData.push(new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOffice));
             askToAdd();
 
 
@@ -149,7 +154,7 @@ async function addEngineer() {
     await inquirer
         .prompt(questionsEngineer)
         .then((data) => {
-            engineerData.push(data);
+            engineerData.push(new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub));
         })
 
     askToAdd();
@@ -160,7 +165,7 @@ async function addIntern() {
     await inquirer
         .prompt(questionsIntern)
         .then((data) => {
-            internData.push(data);
+            internData.push(new Intern(data.internName, data.internId, data.internEmail, data.internSchool));
         })
     askToAdd();
 
@@ -175,6 +180,12 @@ function finishBuilding() {
     // fs.writeFile(`intern.txt`, JSON.stringify(internData), (err) =>
     //     err ? console.error(err) : console.log('Success!')
     // );
+
+    console.log(managerData[0].getName());
+    console.log(managerData[0].getId());
+    console.log(managerData[0].getEmail());
+    console.log(managerData[0].getRole());
+    console.log(managerData[0].getOfficeNumber());
     
 }
 
