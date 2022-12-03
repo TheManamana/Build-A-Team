@@ -174,7 +174,11 @@ async function addIntern() {
 }
 function finishBuilding() {
 
-    generateHtml(managerData, engineerData, internData);
+    // generateHtml(managerData, engineerData, internData);
+    fs.writeFile(`Team.html`, generateHtml(managerData, engineerData, internData), (err) =>
+        err ? console.error(err) : console.log('Success!')
+    );
+    
     // fs.writeFile(`manager.txt`, JSON.stringify(managerData), (err) =>
     //     err ? console.error(err) : console.log('Success!')
     // );
@@ -185,11 +189,11 @@ function finishBuilding() {
     //     err ? console.error(err) : console.log('Success!')
     // );
 
-    console.log(managerData[0].getName());
-    console.log(managerData[0].getId());
-    console.log(managerData[0].getEmail());
-    console.log(managerData[0].getRole());
-    console.log(managerData[0].getOfficeNumber());
+    // console.log(managerData[0].getName());
+    // console.log(managerData[0].getId());
+    // console.log(managerData[0].getEmail());
+    // console.log(managerData[0].getRole());
+    // console.log(managerData[0].getOfficeNumber());
     
 }
 
