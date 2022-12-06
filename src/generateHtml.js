@@ -8,8 +8,8 @@ function createManagerCard(name, id, email, officeNum){
         </h5>
         <div class="card-body">
                         
-            <p class="card-text">ID: ${id}</p>
-            <p class="card-text">Email: ${email}</p>
+            <p class="card-text">ID: ${id}</p>            
+            <p class="card-text">Email: <a href= "mailto:${email}">${email}</a></p>
             <p class="card-text">Office Number: ${officeNum}</p>
                         
         </div>
@@ -28,8 +28,8 @@ function createEngineerCard(name, id, email, github){
         <div class="card-body">
             
             <p class="card-text">ID: ${id}</p>
-            <p class="card-text">Email: ${email}</p>
-            <p class="card-text">Github: ${github}</p>
+            <p class="card-text">Email: <a href= "mailto:${email}">${email}</a></p>           
+            <p class="card-text">Github: <a href="https://github.com/${github}" target="_blank" rel="noopener noreferrer">${github}</a></p>
             
         </div>
     </div>
@@ -47,7 +47,7 @@ function createInternCard(name, id, email, school){
         <div class="card-body">
             
             <p class="card-text">ID: ${id}</p>
-            <p class="card-text">Email: ${email}</p>
+            <p class="card-text">Email: <a href= "mailto:${email}">${email}</a></p>
             <p class="card-text">School: ${school}</p>
             
         </div>
